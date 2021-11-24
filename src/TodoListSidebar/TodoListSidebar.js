@@ -1,34 +1,33 @@
-import React, {Component} from "react";
+import React, {Component, useState, useEffect} from "react";
 import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
 import {TaskList} from "./TaskList";
+import taskApi from "../Api/TaskListApi";
 
-class TodoListSidebar extends Component {
-    constructor() {
-        super();
-        this.state = {title: "title"}
-    }
-    render() {
+
+const TodoListSidebar = () => {
+    const [count, setCount] = useState([]);
+    useEffect(() => {
+        taskApi.getTaskLists().then((data) => setCount(data));
+    }, []);
         return (
             <ProSidebar collapsed={false}>
-                <SidebarHeader class='pro-sidebar-header'>
+                <SidebarHeader className='pro-sidebar-header'>
                     <div>
                         <p>Task Lists</p>
                     </div>
                 </SidebarHeader>
                 <SidebarContent>
                     <Menu iconShape="square">
-                        <MenuItem>{this.state.title}</MenuItem>
-                        <TaskList title={'I am your`s function'} />
-                    </Menu>
+                        {count.map(tl =>  <TaskList key={tl.id} title={tl.title} />)}
+                    </Menu>K
                 </SidebarContent>
                 <SidebarFooter>
                 </SidebarFooter>
             </ProSidebar>
         )
-    }
-
+    
 }
 
 export default TodoListSidebar;

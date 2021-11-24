@@ -5,6 +5,11 @@ const taskApi = {
         return fetch(baseApiUrl + '/TaskList')
             .then(response => response.json())
     },
+    getTask()
+    {
+        return fetch(baseApiUrl + '/Task/22')
+            .then(response => response.json())
+    },
 
 
     getOpenTasks() {
