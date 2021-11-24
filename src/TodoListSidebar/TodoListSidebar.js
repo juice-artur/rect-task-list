@@ -20,7 +20,7 @@ const TodoListSidebar = () => {
                 </SidebarHeader>
                 <SidebarContent>
                     <Menu iconShape="square">
-                        {count.map(tl =>  <TaskList key={tl.id} title={tl.title} />)}
+                        {count.map(tl =>  <TaskList key={tl.id} id={tl.id} title={tl.title} />)}
                     </Menu>
                 </SidebarContent>
                 <SidebarFooter>
