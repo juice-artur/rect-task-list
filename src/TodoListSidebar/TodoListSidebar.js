@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
+import {TaskList} from "./TaskList";
 
 class TodoListSidebar extends Component {
     constructor() {
@@ -19,6 +20,7 @@ class TodoListSidebar extends Component {
                 <SidebarContent>
                     <Menu iconShape="square">
                         <MenuItem>{this.state.title}</MenuItem>
+                        <TaskList title={'I am your`s function'} />
                     </Menu>
                 </SidebarContent>
                 <SidebarFooter>
