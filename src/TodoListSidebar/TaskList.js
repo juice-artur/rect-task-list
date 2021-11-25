@@ -1,17 +1,13 @@
 import React, {Component} from "react";
 import {MenuItem} from "react-pro-sidebar";
 
-export class TaskList extends Component{
-    constructor(props) {
-        super();
-        this.state = {
-            title: props.title,
-            id: props.id
-        };
+const TaskList = (props) => {
+    let list = props.list;
+    let onChange = () => {
+        console.log(list.id)
+        props.changeListHandler(list.id);
     }
-   render()
-    {
-        const {title} = this.state;
-        return( <MenuItem onClick={e => console.log(this.props.id)}>{title} </MenuItem>)   
-    }
+    return( <MenuItem onClick={onChange}>{list.title} </MenuItem>)
 }
+
+export default TaskList;

@@ -5,6 +5,13 @@ const taskApi = {
         return fetch(baseApiUrl + '/TaskList')
             .then(response => response.json())
     },
+    
+    getTaskListById(listId)
+    {
+        return fetch(baseApiUrl + `/TaskList/${listId}`)
+            .then(response => response.json())   
+    },
+    
     getTask()
     {
         return fetch(baseApiUrl + '/Task/22')
@@ -12,8 +19,8 @@ const taskApi = {
     },
 
 
-    getOpenTasks() {
-        return fetch(baseApiUrl + '/TaskList/1/all-tasks')
+    getOpenTasks(listId) {
+        return fetch(baseApiUrl + `/TaskList/${listId}/all-tasks`)
             .then(response => response.json())
     },
     createTask(task)

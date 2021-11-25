@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import taskApi from "../Api/TaskListApi";
 
 //TODO: Do work this function
 function onClickDelete(id) {
