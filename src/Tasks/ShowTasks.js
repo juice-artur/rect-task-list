@@ -1,4 +1,4 @@
-import {Task} from "./Task";
+import Task from "./Task";
 import "./ShowTasks.css" 
 
 const ShowTasks = (props) => {
@@ -8,8 +8,5 @@ const ShowTasks = (props) => {
             {list.map(tl => <Task id={tl.id} title={tl.title} done ={tl.done} description = {tl.description} dueDate = {tl.dueDate}/>)}
         </div>
     )
-    
-
 }
-
 export default  ShowTasks;
