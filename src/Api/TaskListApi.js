@@ -44,9 +44,9 @@ const taskApi = {
         })
     },
 
-    deleteTask(task)
+    deleteTask(taskId)
     {
-        return fetch(baseApiUrl + `/Task/${task.id}`,
+        return fetch(baseApiUrl + `/Task/${taskId}`,
             {
                 method: 'DELETE'
             })

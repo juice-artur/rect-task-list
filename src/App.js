@@ -1,9 +1,13 @@
 import './App.css';
-import TodoListSidebar from "./TodoListSidebar/TodoListSidebar"; 
+import TodoListSidebar from "./TodoListSidebar/TodoListSidebar";
+import ShowTasks from "./Tasks/ShowTasks"; 
 function App() {
   return (
     <div className="App">
-      <TodoListSidebar />
+        <div className="main-info">
+            <TodoListSidebar />
+            <ShowTasks/>
+        </div>
     </div>
   );
 }
