@@ -1,16 +1,14 @@
-import React, {Component} from "react";
-
 //TODO: Do work this function
 function onClickDelete(id) {
     console.log("Test: " + {id})
 }
 
 const Task = (props) => {
-    let taskListId = props.taskListId
-    let title = props.title;
-    let description = props.description;
-    let dueDate = props.dueDate;
-    let done = props.done;
+    let taskListId = props.task.taskListId
+    let title =  props.task.title;
+    let description =  props.task.description;
+    let dueDate =  props.task.dueDate;
+    let done =  props.task.done;
     return (
         <div className="task-to-output">
             <div className='task-head'>
