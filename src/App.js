@@ -5,26 +5,33 @@ import {useEffect, useState} from "react";
 import taskApi from "./Api/TaskListApi"; 
 function App() {
     const [lists, setLists] = useState([]);
-    const [currentList, setCurrentList] = useState([]);
+    const [currentListTask, setCurrentListTask] = useState([]);
+    
     
     useEffect(() => {
         taskApi.getTaskLists().then((data) => setLists(data));
+        console.log("seEffect")
     }, []);
-
-/*    useEffect(() => {
-        taskApi.getOpenTasks(1).then((data) => setCurrentList(data));
-    }, []);*/
     
-    let changeList = (listId) => {
-        taskApi.getOpenTasks(listId).then((data) => setCurrentList(data));
-        console.log("Niger i am here");
+    
+    let changeCurrentListTask= (listId) => {
+        console.log("changeCurrentListTask");
+        taskApi.getOpenTasks(listId).then((data) => setCurrentListTask(data));
     }
+
+    let deleteTask= (task) => {
+        console.log("deleteTask");
+        currentListTask.indexOf(task);
+        let tet = currentListTask.splice(currentListTask.indexOf(task), 1)
+        setCurrentListTask(tet);       
+    }
+    
     
   return (
     <div className="App">
         <div className="main-info">
-            <TodoListSidebar lists={lists} changeListHandler={changeList}/>
-            <ShowTasks currentList = {currentList}/>
+            <TodoListSidebar lists={lists} changeCurrentListTask={changeCurrentListTask}/>
+            <ShowTasks currentList = {currentListTask} deleteTask ={deleteTask}/>
         </div>
     </div>
   );

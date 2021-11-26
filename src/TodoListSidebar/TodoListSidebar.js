@@ -5,7 +5,6 @@ import TaskList from "./TaskList";
 
 
 const TodoListSidebar = (props) => {
-    let lists = props.lists;
     return (
         <ProSidebar collapsed={false}>
             <SidebarHeader className='pro-sidebar-header'>
@@ -15,7 +14,7 @@ const TodoListSidebar = (props) => {
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="square">
-                    {lists.map(tl => <TaskList key={tl.id} list={tl} changeListHandler={props.changeListHandler}/>)}
+                    {props.lists.map(tl => <TaskList key={tl.id} list={tl} changeCurrentListTask={props.changeCurrentListTask}/>)}
                 </Menu>
             </SidebarContent>
             <SidebarFooter>
