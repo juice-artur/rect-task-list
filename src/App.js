@@ -7,6 +7,7 @@ import NewTaskForm from "./NewTaskForm/NewTaskForm";
 function App() {
     const [lists, setLists] = useState([]);
     const [currentListTask, setCurrentListTask] = useState([]);
+    const [currentListId, setCurrentListId] = useState();
     
     
     useEffect(() => {
@@ -15,21 +16,22 @@ function App() {
     }, []);
     
     
-    let changeCurrentListTask= (listId) => {
-        console.log("changeCurrentListTask");
-        taskApi.getOpenTasks(listId).then((data) => setCurrentListTask(data))
+    let changeCurrentListTask= (listId, id) => {
+        console.log("changeCurrentListTask"+ JSON.stringify(id));
+        taskApi.getOpenTasks(listId).then((data) => setCurrentListTask(data));
+        setCurrentListId(id);
     }
 
     let deleteTask= (task) => {
         console.log("deleteTask");
         currentListTask.indexOf(task);
         let tet = currentListTask.splice(currentListTask.indexOf(task), 1)
-        setCurrentListTask(tet);       
+        setCurrentListTask(tet);
     }
 
     let addTask= (task) => {
-
-        taskApi.createTask(task).then(response => response.json()).then(task__ => taskApi.getOpenTasks(task__.taskListId).then((data) => setCurrentListTask(data)));
+        console.log("id is: "+ currentListId);
+        taskApi.createTask(task, currentListId).then(response => response.json()).then(task__ => taskApi.getOpenTasks(task__.taskListId).then((data) => setCurrentListTask(data)));
     }
     
     

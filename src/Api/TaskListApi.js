@@ -24,9 +24,10 @@ const taskApi = {
             .then(response => response.json())
     },
     
-    createTask(task)
+    createTask(task, id)
     {
-        task.taskListId = 1;
+        console.log("id is: "+ id);
+        task.taskListId = id;
         task.dueDate = new Date(task.dueDate);
         console.log("Task in iside API: " + JSON.stringify(task));
         return fetch(baseApiUrl +'/Task',
