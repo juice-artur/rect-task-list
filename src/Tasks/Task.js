@@ -8,9 +8,9 @@ const Task = (props) => {
     }
     
     let soldCheckbox = (event)=> {
-        console.log("fffff" + JSON.stringify(task));
-        console.log(event.target.checked);
-        setX({...task, done: event.target.checked});
+        x.done = !x.done;
+        setX({...task, done: x.done});
+        props.changeState(x)
     }
     return (
         <div className="task-to-output">

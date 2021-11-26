@@ -26,10 +26,8 @@ const taskApi = {
     
     createTask(task, id)
     {
-        console.log("id is: "+ id);
         task.taskListId = id;
         task.dueDate = new Date(task.dueDate);
-        console.log("Task in iside API: " + JSON.stringify(task));
         return fetch(baseApiUrl +'/Task',
             {
                 method: 'POST',
@@ -43,7 +41,6 @@ const taskApi = {
 
     patchTask(task)
     {
-        task.taskListId = 1
         return fetch(baseApiUrl + `/Task/${task.id}`,{
             method : 'PATCH',
             headers:

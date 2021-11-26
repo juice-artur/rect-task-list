@@ -21,6 +21,12 @@ function App() {
         taskApi.getOpenTasks(listId).then((data) => setCurrentListTask(data));
         setCurrentListId(id);
     }
+    
+    let changeState = (task) => {
+        console.log(currentListId);
+        console.log(task);
+        taskApi.patchTask(task, currentListId).then(temp => taskApi.getOpenTasks(currentListId).then((data) => setCurrentListTask(data))).then(setCurrentListId(currentListId));
+    }
 
     let deleteTask= (taskId) => {
         console.log("deleteTask");
@@ -40,7 +46,7 @@ function App() {
     <div className="App">
         <div className="main-info">
             <TodoListSidebar lists={lists} changeCurrentListTask={changeCurrentListTask}/>
-            <ShowTasks currentList = {currentListTask} deleteTask ={deleteTask}/>
+            <ShowTasks currentList = {currentListTask} deleteTask ={deleteTask} changeState={changeState}/>
             <NewTaskForm addTask ={addTask} currentListTask = {currentListTask}/>
         </div>
     </div>
