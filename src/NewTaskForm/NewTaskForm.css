@@ -1,4 +1,19 @@
-.form {
+form {
     display: flex;
     flex-direction: column;
+    border: 2px solid blueviolet;
+}
+
+.item {
+
+    font-size: x-large;
+    margin: 10px 50px;
+}
+
+form button {
+    font-size: large;
+    width: 60%;
+    margin: 0 auto;
+    align-items: center;
+
 }

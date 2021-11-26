@@ -17,9 +17,9 @@ const NewTaskForm = (props) => {
     };
     return (
         <form onSubmit={onClickAdd} name="taskForm" id="addForm">
-            <input type="text" name="title"  placeholder="Title" required/>
-            <input type="text" name="description" placeholder="Task description"/>
-            <input type="date" name="dueDate" placeholder="Deadline"/>
+            <input className='item' type="text" name="title"  placeholder="Title" required/>
+            <input className='item' type="text" name="description" placeholder="Task description"/>
+            <input className='item' type="date" name="dueDate" placeholder="Deadline"/>
             <button type="submit">Add task</button>
         </form>
     );
