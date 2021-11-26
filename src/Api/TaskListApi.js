@@ -23,10 +23,12 @@ const taskApi = {
         return fetch(baseApiUrl + `/TaskList/${listId}/all-tasks`)
             .then(response => response.json())
     },
+    
     createTask(task)
     {
         task.taskListId = 1;
         task.dueDate = new Date(task.dueDate);
+        console.log("Task in iside API: " + JSON.stringify(task));
         return fetch(baseApiUrl +'/Task',
             {
                 method: 'POST',

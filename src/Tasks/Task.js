@@ -1,9 +1,4 @@
-//TODO: Do work this function
 import {useState} from "react";
-
-function onClickDelete(id) {
-    console.log("Test: " + {id})
-}
 
 const Task = (props) => {
     let task = props.task;
@@ -17,7 +12,6 @@ const Task = (props) => {
     return (
         <div className="task-to-output">
             <div className='task-head'>
-                {/*//TODO: Fixed input and make clickable checkbox*/}
                 <input className="task-isDone-checkBox" type="checkbox" defaultChecked={x.done} onChange={soldCheckbox}/>
                 <p>{x.title}</p>
                 <button className='remove-button' onClick={props.deleteTask}> Delete task </button>
