@@ -25,7 +25,8 @@ function App() {
     let deleteTask= (taskId) => {
         console.log("deleteTask");
         console.log(taskId);
-        taskApi.deleteTask(taskId);
+        console.log(currentListId);
+        taskApi.deleteTask(taskId).then(temp => taskApi.getOpenTasks(currentListId).then((data) => setCurrentListTask(data))).then(setCurrentListId(currentListId));
     }
     
 
