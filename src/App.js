@@ -22,12 +22,12 @@ function App() {
         setCurrentListId(id);
     }
 
-    let deleteTask= (task) => {
+    let deleteTask= (taskId) => {
         console.log("deleteTask");
-        currentListTask.indexOf(task);
-        let tet = currentListTask.splice(currentListTask.indexOf(task), 1)
-        setCurrentListTask(tet);
+        console.log(taskId);
+        taskApi.deleteTask(taskId);
     }
+    
 
     let addTask= (task) => {
         console.log("id is: "+ currentListId);
