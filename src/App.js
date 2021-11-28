@@ -1,4 +1,5 @@
 import './App.css';
+import {Routes, Route, Link} from 'react-router-dom'
 import TodoListSidebar from "./TodoListSidebar/TodoListSidebar";
 import ShowTasks from "./Tasks/ShowTasks";
 import {useEffect, useState} from "react";
@@ -25,10 +26,10 @@ function App() {
     let changeState = (task) => {
         console.log(currentListId);
         taskApi.patchTask(task, currentListId)
-            .then(temp => taskApi.getOpenTasks(currentListId)
+            .then(() => taskApi.getOpenTasks(currentListId)
                 .then((data) => setCurrentListTask(data)))
-            .then(test => setCurrentListId(currentListId))
-            .then(q => taskApi.getDashboard()
+            .then(() => setCurrentListId(currentListId))
+            .then(() => taskApi.getDashboard()
                 .then((data) => setLists(data.lists)));
     }
 
@@ -37,9 +38,11 @@ function App() {
         console.log(taskId);
         console.log(currentListId);
         taskApi.deleteTask(taskId)
-            .then(temp => taskApi.getOpenTasks(currentListId)
+            .then(() => taskApi.getOpenTasks(currentListId)
                 .then((data) => setCurrentListTask(data)))
-            .then(setCurrentListId(currentListId));
+            .then(() => setCurrentListId(currentListId))
+            .then(() => taskApi.getDashboard()
+                .then((data) => setLists(data.lists)));
     }
     
 
@@ -48,7 +51,11 @@ function App() {
         taskApi.createTask(task, currentListId)
             .then(response => response.json())
             .then(task__ => taskApi.getOpenTasks(task__.taskListId)
-                .then((data) => setCurrentListTask(data)));
+                .then((data) => setCurrentListTask(data)))
+            .then(() => setCurrentListId(currentListId))
+            .then(() => taskApi.getDashboard()
+                .then((data) => setLists(data.lists)));
+        
     }
     
     
