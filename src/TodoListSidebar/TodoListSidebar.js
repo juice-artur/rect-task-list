@@ -14,7 +14,7 @@ const TodoListSidebar = (props) => {
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="square">
-                    {props.lists.map(tl => <TaskList key={tl.id} list={tl} changeCurrentListTask={props.changeCurrentListTask}/>)}
+                    {props.lists.map(tl => <TaskList key={tl.taskListId} list={tl} changeCurrentListTask={props.changeCurrentListTask}/>)}
                 </Menu>
             </SidebarContent>
             <SidebarFooter>

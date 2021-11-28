@@ -11,7 +11,7 @@ function App() {
     
     
     useEffect(() => {
-        taskApi.getTaskLists().then((data) => setLists(data));
+        taskApi.getDashboard().then((data) => setLists(data.lists));
         console.log("seEffect")
     }, []);
     
@@ -24,21 +24,31 @@ function App() {
     
     let changeState = (task) => {
         console.log(currentListId);
-        console.log(task);
-        taskApi.patchTask(task, currentListId).then(temp => taskApi.getOpenTasks(currentListId).then((data) => setCurrentListTask(data))).then(setCurrentListId(currentListId));
+        taskApi.patchTask(task, currentListId)
+            .then(temp => taskApi.getOpenTasks(currentListId)
+                .then((data) => setCurrentListTask(data)))
+            .then(test => setCurrentListId(currentListId))
+            .then(q => taskApi.getDashboard()
+                .then((data) => setLists(data.lists)));
     }
 
     let deleteTask= (taskId) => {
         console.log("deleteTask");
         console.log(taskId);
         console.log(currentListId);
-        taskApi.deleteTask(taskId).then(temp => taskApi.getOpenTasks(currentListId).then((data) => setCurrentListTask(data))).then(setCurrentListId(currentListId));
+        taskApi.deleteTask(taskId)
+            .then(temp => taskApi.getOpenTasks(currentListId)
+                .then((data) => setCurrentListTask(data)))
+            .then(setCurrentListId(currentListId));
     }
     
 
     let addTask= (task) => {
         console.log("id is: "+ currentListId);
-        taskApi.createTask(task, currentListId).then(response => response.json()).then(task__ => taskApi.getOpenTasks(task__.taskListId).then((data) => setCurrentListTask(data)));
+        taskApi.createTask(task, currentListId)
+            .then(response => response.json())
+            .then(task__ => taskApi.getOpenTasks(task__.taskListId)
+                .then((data) => setCurrentListTask(data)));
     }
     
     

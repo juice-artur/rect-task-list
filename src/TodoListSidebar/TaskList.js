@@ -1,13 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
 import {MenuItem} from "react-pro-sidebar";
 
 const TaskList = (props) => {
     let list = props.list;
     let onChange = () => {
-        console.log(list.id);
-        props.changeCurrentListTask(list.id, list.id);
+        props.changeCurrentListTask(list.taskListId, list.taskListId);
     }
-    return( <MenuItem onClick={onChange}>{list.title} </MenuItem>)
+    return( <MenuItem onClick={onChange}>{list.title} {list.countOpenTasks === 0 ? '' : `(${list.countOpenTasks})`} </MenuItem>)
 }
 
 export default TaskList;

@@ -6,6 +6,12 @@ const taskApi = {
             .then(response => response.json())
     },
     
+    getDashboard()
+    {
+        return fetch(baseApiUrl + '/Dashboard')
+            .then(response => response.json())
+    },
+    
     getTaskListById(listId)
     {
         return fetch(baseApiUrl + `/TaskList/${listId}`)
