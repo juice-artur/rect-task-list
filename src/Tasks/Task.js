@@ -1,6 +1,12 @@
 import {useState} from "react";
+import classNames from "classnames";
 
 const Task = (props) => {
+    function isExpired(date)
+    {
+        return new Date(date) < Date.now();
+    }
+    
     let task = props.task;
     const [x, setX] = useState(task);
     function onClickDelete() {
@@ -23,7 +29,7 @@ const Task = (props) => {
             <div className="desc">
                 <p >{x.description}</p>
             </div>
-            <div className="date">
+            <div className={classNames('date', {'date-red': (isExpired(task.dueDate) && !task.done)})}>
                 <p>{x.dueDate}</p>
             </div>
         </div>

@@ -1,9 +1,14 @@
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
+import classNames from "classnames";
 
 
 const TodayTask = (props) => {
     let task = props.task;
+    function isExpired(date)
+    {
+        return new Date(date) < Date.now();
+    }
     
     function onClickDelete() {
         props.deleteTask(task);
@@ -29,10 +34,10 @@ const TodayTask = (props) => {
                 <p>{task.title}</p>
                 <button className='remove-button' onClick={onClickDelete}> Delete task</button>
             </div>
-            <div className="desc">
+            <div  className="desc">
                 <p>{task.description}</p>
             </div>
-            <div className="date">
+            <div className={classNames('date', {'date-red': (isExpired(task.dueDate) && !task.done)})}>
                 <p>{task.dueDate}</p>
             </div>
         </div>
