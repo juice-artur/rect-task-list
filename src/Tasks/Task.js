@@ -23,7 +23,7 @@ const Task = (props) => {
         <div className="task-to-output">
             <div className='task-head'>
                 <input className="task-isDone-checkBox" type="checkbox" defaultChecked={x.done} onChange={soldCheckbox}/>
-                <p>{x.title}</p>
+                <p className={classNames({'done-title' : task.done})}>{x.title}</p>
                 <button className='remove-button' onClick={onClickDelete}> Delete task </button>
             </div>
             <div className="desc">

@@ -31,7 +31,7 @@ const TodayTask = (props) => {
             </Link>
             <div className='task-head'>
                 <input className="task-isDone-checkBox" type="checkbox" defaultChecked={task.done} onChange={soldCheckbox}/>
-                <p>{task.title}</p>
+                <p className={classNames({'done-title' : task.done})}>{task.title}</p>
                 <button className='remove-button' onClick={onClickDelete}> Delete task</button>
             </div>
             <div  className="desc">
