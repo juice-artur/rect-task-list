@@ -6,7 +6,7 @@ import {useState, useEffect} from "react";
 import taskApi from "../Api/TaskListApi";
 import {Link} from "react-router-dom";
 
-const TodoListSidebar = (props) => {
+const TodoListSidebar = () => {
     
     const [lists, setLists] =  useState([])
     

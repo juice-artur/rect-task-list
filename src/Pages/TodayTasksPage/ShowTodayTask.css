@@ -32,3 +32,9 @@
 .date{
     float: right;
 }
+
+
+.text-link {
+    color: white;
+    text-decoration: underline;
+}
