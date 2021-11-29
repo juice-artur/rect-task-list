@@ -1,9 +1,10 @@
-import {Menu, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
+import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
 import TaskList from "./TaskList";
 import {useState, useEffect} from "react";
 import taskApi from "../Api/TaskListApi";
+import {Link} from "react-router-dom";
 
 const TodoListSidebar = (props) => {
     
@@ -24,6 +25,11 @@ const TodoListSidebar = (props) => {
             <SidebarContent>
                 <Menu iconShape="square">
                     {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
+
+                    <MenuItem>
+                        Today Tasks
+                        <Link to="/today" />
+                    </MenuItem>
                 </Menu>
             </SidebarContent>
             <SidebarFooter>

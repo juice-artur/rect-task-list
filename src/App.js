@@ -1,11 +1,9 @@
 import './App.css';
 import {Route, Link, Routes} from 'react-router-dom'
 import TodoListSidebar from "./TodoListSidebar/TodoListSidebar";
-import ShowTasks from "./Tasks/ShowTasks";
-import {useEffect, useState} from "react";
-import taskApi from "./Api/TaskListApi";
-import NewTaskForm from "./NewTaskForm/NewTaskForm";
+
 import TodoListPage from "./Pages/TodoListPage/TodoListPage";
+import TodayTasksPage from "./Pages/TodayTasksPage/TodayTasksPage";
 function App() {
     /*const [lists, setLists] = useState([]);
     const [currentListTask, setCurrentListTask] = useState([]);
@@ -66,6 +64,7 @@ function App() {
             <TodoListSidebar/>
             <Routes>
                 <Route  path={'/todo-list/:id'} element={<TodoListPage/>}/>
+                <Route  path={'/today'} element={<TodayTasksPage/>}/>
             </Routes>
         </div>
     </div>

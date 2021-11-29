@@ -1,9 +1,9 @@
 const baseApiUrl = 'https://localhost:5001/api';
 const taskApi = {
-    getTaskLists()
+    getTodayTasks()
     {
-        return fetch(baseApiUrl + '/TaskList')
-            .then(response => response.json())
+        return fetch(baseApiUrl + '/collection/today')
+            .then(response => response.json())   
     },
     
     getDashboard()
@@ -12,19 +12,7 @@ const taskApi = {
             .then(response => response.json())
     },
     
-    getTaskListById(listId)
-    {
-        return fetch(baseApiUrl + `/TaskList/${listId}`)
-            .then(response => response.json())   
-    },
     
-    getTask()
-    {
-        return fetch(baseApiUrl + '/Task/22')
-            .then(response => response.json())
-    },
-
-
     getOpenTasks(listId) {
         return fetch(baseApiUrl + `/TaskList/${listId}/all-tasks`)
             .then(response => response.json())

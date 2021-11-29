@@ -32,16 +32,3 @@
 .date{
     float: right;
 }
-
-.task-list-title
-{
-    font-weight: bolder;
-    text-align: center;
-}
-
-.task-list-title p
-{
-    font-weight: bolder;
-    font-size: x-large;
-    margin: 1%;
-}
