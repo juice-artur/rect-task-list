@@ -1,5 +1,6 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import classNames from "classnames";
+import moment from "moment";
 
 const Task = (props) => {
     function isExpired(date)
@@ -12,7 +13,7 @@ const Task = (props) => {
     function onClickDelete() {
        props.deleteTask(task.id);
     }
-    
+    let d = x.dueDate === null ? " " : moment(new Date(x.dueDate)).format('YYYY/MM/DD');
     let soldCheckbox = (event)=> {
         x.done = !x.done;
         setX({...task, done: x.done});
@@ -30,7 +31,7 @@ const Task = (props) => {
                 <p >{x.description}</p>
             </div>
             <div className={classNames('date', {'date-red': (isExpired(task.dueDate) && !task.done)})}>
-                <p>{x.dueDate}</p>
+                <p> {x.dueDate === null ? " " : moment(new Date(x.dueDate)).format('YYYY/MM/DD')} </p>
             </div>
         </div>
     )

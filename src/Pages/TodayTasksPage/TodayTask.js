@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
 import classNames from "classnames";
+import moment from "moment";
 
 
 const TodayTask = (props) => {
@@ -38,7 +39,7 @@ const TodayTask = (props) => {
                 <p>{task.description}</p>
             </div>
             <div className={classNames('date', {'date-red': (isExpired(task.dueDate) && !task.done)})}>
-                <p>{task.dueDate}</p>
+                <p>{moment(new Date(task.dueDate)).format('YYYY/MM/DD')}</p>
             </div>
         </div>
     );
