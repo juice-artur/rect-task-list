@@ -4,16 +4,16 @@ import React, {useState} from "react";
 
 const TodayTask = (props) => {
     let task = props.task;
-    console.log("this: " + task)
     
     function onClickDelete() {
         props.deleteTask(task);
     }
 
     let soldCheckbox = (event)=> {
-        task.done = !task.done;
-        props.changeState(task);
-        console.log(task);
+        let _done = !task.done;
+        let test ={id: task.taskId, taskListId:task.list.taskListId, title: task.title, description: task.description, dueDate: task.dueDate, done:  _done };
+        console.log('test: ' + _done );
+        props.changeState(test);
     }
     
     
