@@ -1,12 +1,13 @@
 import './App.css';
-import {Routes, Route, Link} from 'react-router-dom'
+import {Route, Link, Routes} from 'react-router-dom'
 import TodoListSidebar from "./TodoListSidebar/TodoListSidebar";
 import ShowTasks from "./Tasks/ShowTasks";
 import {useEffect, useState} from "react";
 import taskApi from "./Api/TaskListApi";
-import NewTaskForm from "./NewTaskForm/NewTaskForm"; 
+import NewTaskForm from "./NewTaskForm/NewTaskForm";
+import TodoListPage from "./Pages/TodoListPage"; 
 function App() {
-    const [lists, setLists] = useState([]);
+    /*const [lists, setLists] = useState([]);
     const [currentListTask, setCurrentListTask] = useState([]);
     const [currentListId, setCurrentListId] = useState();
     
@@ -56,15 +57,16 @@ function App() {
             .then(() => taskApi.getDashboard()
                 .then((data) => setLists(data.lists)));
         
-    }
+    }*/
     
     
   return (
     <div className="App">
         <div className="main-info">
-            <TodoListSidebar lists={lists} changeCurrentListTask={changeCurrentListTask}/>
-            <ShowTasks currentList = {currentListTask} deleteTask ={deleteTask} changeState={changeState}/>
-            <NewTaskForm addTask ={addTask} currentListTask = {currentListTask}/>
+            <TodoListSidebar/>
+            <Routes>
+                <Route  path={'/todo-list/:id'} element={<TodoListPage/>}/>
+            </Routes>
         </div>
     </div>
   );

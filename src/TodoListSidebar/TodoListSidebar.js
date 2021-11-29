@@ -1,11 +1,19 @@
-import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
+import {Menu, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
 import TaskList from "./TaskList";
-import {Link} from "react-router-dom";
-
+import {useState, useEffect} from "react";
+import taskApi from "../Api/TaskListApi";
 
 const TodoListSidebar = (props) => {
+    
+    const [lists, setLists] =  useState([])
+    
+    useEffect(() => {
+        taskApi.getDashboard().then((data) => setLists(data.lists));
+        console.log("seEffect")
+    }, []);
+    
     return (
         <ProSidebar collapsed={false}>
             <SidebarHeader className='pro-sidebar-header'>
@@ -15,7 +23,7 @@ const TodoListSidebar = (props) => {
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="square">
-                    {props.lists.map(tl => <TaskList key={tl.taskListId} list={tl} changeCurrentListTask={props.changeCurrentListTask}/>)}
+                    {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
                 </Menu>
             </SidebarContent>
             <SidebarFooter>
