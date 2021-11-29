@@ -5,7 +5,7 @@ import ShowTasks from "./Tasks/ShowTasks";
 import {useEffect, useState} from "react";
 import taskApi from "./Api/TaskListApi";
 import NewTaskForm from "./NewTaskForm/NewTaskForm";
-import TodoListPage from "./Pages/TodoListPage"; 
+import TodoListPage from "./Pages/TodoListPage/TodoListPage";
 function App() {
     /*const [lists, setLists] = useState([]);
     const [currentListTask, setCurrentListTask] = useState([]);

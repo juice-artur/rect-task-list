@@ -4,10 +4,6 @@ import {Link} from "react-router-dom";
 
 const TaskList = (props) => {
     let list = props.list;
-    /*let onChange = () => {
-        props.changeCurrentListTask(list.taskListId, list.taskListId);
-        
-    }*/
     return(
             <MenuItem> 
                 {list.title} {list.countOpenTasks === 0 ? '' : `(${list.countOpenTasks})`}

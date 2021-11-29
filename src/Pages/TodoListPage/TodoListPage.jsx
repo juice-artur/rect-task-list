@@ -1,9 +1,9 @@
 import "./TodoListPage.css"
-import ShowTasks from "../Tasks/ShowTasks";
-import NewTaskForm from "../NewTaskForm/NewTaskForm";
 import {useParams} from "react-router-dom";
-import taskApi from "../Api/TaskListApi";
 import {useEffect, useState} from "react";
+import taskApi from "../../Api/TaskListApi";
+import NewTaskForm from "../../NewTaskForm/NewTaskForm";
+import ShowTasks from "../../Tasks/ShowTasks";
 
 const TodoListPage = () => {
     
