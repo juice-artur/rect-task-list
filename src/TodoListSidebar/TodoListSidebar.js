@@ -1,4 +1,4 @@
-import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader} from "react-pro-sidebar";
+import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader, SubMenu} from "react-pro-sidebar";
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
 import TaskList from "./TaskList";
@@ -24,12 +24,13 @@ const TodoListSidebar = () => {
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="square">
-                    {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
-
                     <MenuItem>
                         Today Tasks
                         <Link to="/today" />
                     </MenuItem>
+                    <SubMenu title="Lists">
+                        {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
+                    </SubMenu>
                 </Menu>
             </SidebarContent>
             <SidebarFooter>
