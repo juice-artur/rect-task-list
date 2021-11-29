@@ -1,6 +1,6 @@
 import React from "react";
 import {MenuItem} from "react-pro-sidebar";
-import {Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const TaskList = (props) => {
     let list = props.list;
@@ -8,7 +8,12 @@ const TaskList = (props) => {
         props.changeCurrentListTask(list.taskListId, list.taskListId);
         
     }
-    return( <MenuItem onClick={onChange}>{list.title} {list.countOpenTasks === 0 ? '' : `(${list.countOpenTasks})`} </MenuItem>)
+    return(
+            <MenuItem onClick={onChange}> 
+                {list.title} {list.countOpenTasks === 0 ? '' : `(${list.countOpenTasks})`}
+                <Link to={`/todo-list/:${list.taskListId}`}/>
+            </MenuItem>)
+    
 }
 
 export default TaskList;
