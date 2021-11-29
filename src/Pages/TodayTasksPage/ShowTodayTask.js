@@ -3,10 +3,10 @@ import "./ShowTodayTask.css"
 
 const ShowTodayTasks = (props) => {
     let list = props.currentList;
+    
     return (
         <div className='format-task-to-show'>
-            
-            {list.map(tl => <TodayTask key={tl.taskId} task={tl}/>)}
+            {list.map(tl => <TodayTask key={tl.id} task={tl} deleteTask ={props.deleteTask} changeState ={props.changeState}/>)}
         </div>
     )
 }

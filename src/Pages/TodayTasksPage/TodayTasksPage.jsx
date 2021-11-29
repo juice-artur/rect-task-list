@@ -1,13 +1,27 @@
 import taskApi from "../../Api/TaskListApi";
 import ShowTodayTasks from "./ShowTodayTask";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 const TodayTasksPage = () => {
 
     const [collectionToday, setCollectionToday] = useState([]);
-    taskApi.getTodayTasks().then((data) => setCollectionToday(data));
+    
+    useEffect(() => {
+        taskApi.getTodayTasks().then((data) => setCollectionToday(data))
+    },[])
+
+    let deleteTask = (task) => {
+        taskApi.deleteTask( task.taskId)
+            .then(() => taskApi.getTodayTasks().then((data) => setCollectionToday(data)));
+    }
+
+    let changeState = (task) => {
+        taskApi.patchTask(task)
+            .then(() => taskApi.getTodayTasks().then((data) => setCollectionToday(data)));
+    }
+    
     return (
         <div>
-            <ShowTodayTasks currentList = {collectionToday}/>
+            <ShowTodayTasks currentList = {collectionToday} deleteTask ={deleteTask} changeState={changeState}/>
         </div>
     )
 }

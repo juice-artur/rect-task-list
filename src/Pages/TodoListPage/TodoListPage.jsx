@@ -18,7 +18,7 @@ const TodoListPage = () => {
     }
 
     let changeState = (task) => {
-        taskApi.patchTask(task, params.id)
+        taskApi.patchTask(task)
             .then(() => taskApi.getOpenTasks(params.id)
                 .then((data) => setCurrentListTask(data)));
     }
