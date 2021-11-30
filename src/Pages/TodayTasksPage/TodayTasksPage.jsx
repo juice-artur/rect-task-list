@@ -16,7 +16,8 @@ const TodayTasksPage = () => {
 
     let changeState = (task) => {
         taskApi.patchTask(task)
-            .then(() => taskApi.getTodayTasks()).then(setCollectionToday);
+            .then(() => collectionToday.map(_task => task.id === _task.id ? _task = task : _task))
+            .then(setCollectionToday);
     }
     
     return (
