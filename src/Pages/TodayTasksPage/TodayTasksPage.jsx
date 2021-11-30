@@ -6,17 +6,17 @@ const TodayTasksPage = () => {
     const [collectionToday, setCollectionToday] = useState([]);
     
     useEffect(() => {
-        taskApi.getTodayTasks().then((data) => setCollectionToday(data))
+        taskApi.getTodayTasks().then(setCollectionToday)
     },[])
 
     let deleteTask = (task) => {
-        taskApi.deleteTask( task.taskId)
-            .then(() => taskApi.getTodayTasks().then((data) => setCollectionToday(data)));
+        taskApi.deleteTask(task.taskId)
+            .then(() =>setCollectionToday(collectionToday.filter(t => t.taskId !== task.taskId)));
     }
 
     let changeState = (task) => {
         taskApi.patchTask(task)
-            .then(() => taskApi.getTodayTasks().then((data) => setCollectionToday(data)));
+            .then(() => taskApi.getTodayTasks().then(setCollectionToday));
     }
     
     return (

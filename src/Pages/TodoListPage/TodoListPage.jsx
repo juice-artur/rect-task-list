@@ -8,32 +8,27 @@ import ShowTasks from "../../Tasks/ShowTasks";
 const TodoListPage = () => {
     
     const params = useParams();
-    const [currentListTask, setCurrentListTask] = useState([]);
+    const [tasks, setTasks] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     
     useEffect(() => {
-        taskApi.getOpenTasks(params.id, isOpen).then((data) => setCurrentListTask(data));
-        console.log("seEffect")
+        taskApi.getOpenTasks(params.id, isOpen).then(setTasks);
     }, [params.id, isOpen]);
 
     let deleteTask= (taskId) => {
         taskApi.deleteTask(taskId)
-            .then(() => taskApi.getOpenTasks(params.id, isOpen)
-                .then((data) => setCurrentListTask(data)))
+            .then(() =>setTasks(tasks.filter(t => t.id !== taskId)));
     }
 
     let changeState = (task) => {
         taskApi.patchTask(task)
-            .then(() => taskApi.getOpenTasks(params.id, isOpen)
-                .then((data) => setCurrentListTask(data)));
+            .then(() => tasks.map(_task => task.id === _task.id ? _task = task : _task))
+                .then(setTasks);
     }
 
 
     let addTask= (task) => {
-        taskApi.createTask(task, params.id)
-            .then(response => response.json())
-            .then(task__ => taskApi.getOpenTasks(task__.taskListId, isOpen)
-                .then((data) => setCurrentListTask(data)));
+        taskApi.createTask(task, params.id).then(task => setTasks([task, ...tasks]));
 
     }
     
@@ -45,8 +40,8 @@ const TodoListPage = () => {
                 Only open task
                 <input type="checkbox"  onClick={() => setIsOpen(!isOpen)}/>
             </label>
-            <ShowTasks currentList = {currentListTask} deleteTask ={deleteTask} changeState={changeState}/>
-            <NewTaskForm addTask ={addTask} currentListTask = {currentListTask}/>
+            <ShowTasks currentList = {tasks} deleteTask ={deleteTask} changeState={changeState}/>
+            <NewTaskForm addTask ={addTask} currentListTask = {tasks}/>
         </div>
     )
 }  
