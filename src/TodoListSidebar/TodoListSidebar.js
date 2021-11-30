@@ -4,7 +4,7 @@ import "./TodoListSidebar.css";
 import TaskList from "./TaskList";
 import {useState, useEffect} from "react";
 import taskApi from "../Api/TaskListApi";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const TodoListSidebar = () => {
     
@@ -25,8 +25,7 @@ const TodoListSidebar = () => {
             <SidebarContent>
                 <Menu iconShape="square">
                     <MenuItem>
-                        Today Tasks
-                        <Link to="/today" />
+                        <NavLink to="/today">Today Tasks</NavLink>
                     </MenuItem>
                     <SubMenu title="Lists">
                         {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}

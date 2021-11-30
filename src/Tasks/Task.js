@@ -17,7 +17,6 @@ const Task = (props) => {
         x.done = !x.done;
         setX({...task, done: x.done});
         props.changeState(x)
-        console.log(x);
     }
     return (
         <div className="task-to-output">
