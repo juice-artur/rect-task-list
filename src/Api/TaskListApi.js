@@ -13,8 +13,8 @@ const taskApi = {
     },
     
     
-    getOpenTasks(listId) {
-        return fetch(baseApiUrl + `/TaskList/${listId}/all-tasks`)
+    getOpenTasks(listId, isOpen) {
+        return fetch(baseApiUrl + `/TaskList/${listId}/tasks?isOpen=${isOpen}`)
             .then(response => response.json())
     },
     
