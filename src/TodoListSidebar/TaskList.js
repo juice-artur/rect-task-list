@@ -4,9 +4,10 @@ import {Link} from "react-router-dom";
 
 const TaskList = (props) => {
     let list = props.list;
+    let count = list.countOpenTasks;
     return(
             <MenuItem> 
-                {list.title} {list.countOpenTasks === 0 ? '' : `(${list.countOpenTasks})`}
+                {list.title} {count === 0 ? '' : `(${count})`}
                 <Link to={`/todo-list/${list.taskListId}`}/>
             </MenuItem>)
     

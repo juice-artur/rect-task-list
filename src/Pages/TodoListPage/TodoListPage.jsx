@@ -9,7 +9,11 @@ const TodoListPage = () => {
     
     const params = useParams();
     const [currentListTask, setCurrentListTask] = useState([]);
-    taskApi.getOpenTasks(params.id).then((data) => setCurrentListTask(data));
+
+    useEffect(() => {
+        taskApi.getOpenTasks(params.id).then((data) => setCurrentListTask(data));
+        console.log("seEffect")
+    }, params.id);
 
     let deleteTask= (taskId) => {
         taskApi.deleteTask(taskId)

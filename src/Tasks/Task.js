@@ -13,7 +13,6 @@ const Task = (props) => {
     function onClickDelete() {
        props.deleteTask(task.id);
     }
-    let d = x.dueDate === null ? " " : moment(new Date(x.dueDate)).format('YYYY/MM/DD');
     let soldCheckbox = (event)=> {
         x.done = !x.done;
         setX({...task, done: x.done});

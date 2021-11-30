@@ -31,6 +31,12 @@ const TodoListSidebar = () => {
                     <SubMenu title="Lists">
                         {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
                     </SubMenu>
+                    <MenuItem>
+                        <label>
+                            Only open task 
+                            <input type="checkbox" />
+                        </label>
+                    </MenuItem>
                 </Menu>
             </SidebarContent>
             <SidebarFooter>
