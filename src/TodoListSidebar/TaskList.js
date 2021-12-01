@@ -1,6 +1,6 @@
 import React from "react";
 import {MenuItem} from "react-pro-sidebar";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const TaskList = (props) => {
     let list = props.list;

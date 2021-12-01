@@ -2,18 +2,15 @@ import {Menu, MenuItem, ProSidebar, SidebarContent, SidebarFooter, SidebarHeader
 import 'react-pro-sidebar/dist/css/styles.css';
 import "./TodoListSidebar.css";
 import TaskList from "./TaskList";
-import {useState, useEffect} from "react";
-import taskApi from "../Api/TaskListApi";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./TodoListSidebar.scss"
+import {useDispatch, useSelector} from "react-redux";
+import {loadDashboard} from "../store/dashboard/dashboardAction";
+import {useEffect} from "react";
 const TodoListSidebar = () => {
-    
-    const [lists, setLists] =  useState([])
-    
-    useEffect(() => {
-        taskApi.getDashboard().then((data) => setLists(data.lists));
-        console.log("seEffect")
-    }, []);
+    const dispatch = useDispatch();
+    useEffect(() => loadDashboard(dispatch), [])
+    const lists = useSelector(state => state.dashboard.lists)
     
     return (
         <ProSidebar collapsed={false}>
