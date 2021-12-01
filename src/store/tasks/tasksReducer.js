@@ -2,9 +2,9 @@ import {TASKS_LOADED} from './tasksAction'
 import {combineReducers} from "redux";
 import {TASK_STATUS_UPDATED} from "../dashboard/updateTaskStatusAction";
 
-const patchTask = (state, patchInfo) => {
-    console.log(state);
-    return state.map(x => x.id === patchInfo.id? {...x, done: patchInfo.done}: x);
+const patchTask = (state,id, listId, done) => {
+    console.log("tt"+ state)
+    return state.map(x => x.id === id? {...x, done: done}: x);
 }
 
 const tasksReducer = (state = [], action) => {
@@ -12,7 +12,8 @@ const tasksReducer = (state = [], action) => {
         case TASKS_LOADED:
             return action.payload;
         case TASK_STATUS_UPDATED:
-            return patchTask(state, action.payload);
+            state.map(x => x.id === action.payload.id ? {...x, done: action.payload.done}: x);
+            return state;
         default:
             return state;
     }

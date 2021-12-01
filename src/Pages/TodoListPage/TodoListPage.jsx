@@ -14,7 +14,7 @@ const TodoListPage = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const dispatch = useDispatch();
-    const tasks= useSelector(state => state.tasks.tasks)
+    const tasks = useSelector(state => state.tasks.tasks)
     
     useEffect(()=> dispatch(loadTasks(params.id, isOpen)), [dispatch, params.id, isOpen]);
     
@@ -24,16 +24,7 @@ const TodoListPage = () => {
     }
 
     let changeState = (task) => {
-        let patchInfo = {
-            id: task.id,
-            listId: task.taskListId,
-            done: task.done
-        }
-        
-        dispatch(updateStatus(task,patchInfo));
-        /*taskApi.patchTask(task)
-            .then(() => tasks.map(_task => task.id === _task.id ? _task = task : _task))*/
-                /*.then(setTasks);*/
+        dispatch(updateStatus(task));
     }
 
 
