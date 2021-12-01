@@ -22,7 +22,6 @@ const TodayTask = (props) => {
         props.changeState(test);
     }
     
-    
     return (
         <div className="task-to-output">
             <Link className='text-link' to={`/todo-list/${task.list.taskListId}`}>
