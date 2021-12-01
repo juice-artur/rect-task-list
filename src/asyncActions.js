@@ -1,7 +1,7 @@
 const {useDispatch} = require("react-redux");
 const {useMemo} = require("react");
 
-function useActionCreator(actionCreator) {
+export function useActionCreator(actionCreator) {
     const dispatch = useDispatch();
     return useMemo(() => {
         switch (actionCreator.length) {
