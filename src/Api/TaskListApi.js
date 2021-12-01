@@ -35,7 +35,6 @@ const taskApi = {
 
     patchTask(task)
     {
-        console.log(task);
         return fetch(baseApiUrl + `/Task/${task.id}`,{
             method : 'PATCH',
             headers:
