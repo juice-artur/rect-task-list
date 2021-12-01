@@ -4,12 +4,18 @@ import {useEffect, useState} from "react";
 import taskApi from "../../Api/TaskListApi";
 import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
+import {loadTasks} from "../../store/tasks/tasksAction";
+import {useDispatch, useSelector} from "react-redux";
 
 const TodoListPage = () => {
     
     const params = useParams();
     const [tasks, setTasks] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
+
+    const dispatch = useDispatch();
+    useEffect(()=> dispatch(loadTasks(params.id, isOpen)), [dispatch, params.id, isOpen]);
+    const tt= useSelector(state => state.tasks.tasks)
     
     useEffect(() => {
         taskApi.getOpenTasks(params.id, isOpen).then(setTasks);

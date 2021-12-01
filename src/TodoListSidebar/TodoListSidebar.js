@@ -7,11 +7,11 @@ import "./TodoListSidebar.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {loadDashboard} from "../store/dashboard/dashboardAction";
 import {useEffect} from "react";
+
 const TodoListSidebar = () => {
     const dispatch = useDispatch();
     useEffect(() => loadDashboard(dispatch), [])
     const lists = useSelector(state => state.dashboard.lists)
-    
     return (
         <ProSidebar collapsed={false}>
             <SidebarHeader className='pro-sidebar-header'>
