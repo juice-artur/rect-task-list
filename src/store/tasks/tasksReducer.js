@@ -4,7 +4,7 @@ import {TASK_STATUS_UPDATED} from "../dashboard/updateTaskStatusAction";
 
 const patchTask = (state, patchInfo) => {
     console.log(state);
-    return state.map(x => x.id == patchInfo.id? {...x, done: patchInfo.done}: x);
+    return state.map(x => x.id === patchInfo.id? {...x, done: patchInfo.done}: x);
 }
 
 const tasksReducer = (state = [], action) => {
