@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {MenuItem} from "react-pro-sidebar";
 import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {loadDashboard} from "../store/dashboard/dashboardAction";
 
 const TaskList = (props) => {
     let list = props.list;
-    let count = list.countOpenTasks;
+    console.log(list.json + "Kkksksks")
+    const dispatch = useDispatch();
+    useEffect(() => loadDashboard(dispatch), [dispatch])
+    let count = useSelector(state => state.dashboard.openedTasks)
     return(
             <MenuItem>
-                <NavLink to={`/todo-list/${list.taskListId}`} >{list.title} {count === 0 ? '' : `(${count})`}</NavLink>
+                <NavLink to={`/todo-list/${list.taskListId}`} >{list.title} {count[list.taskListId] === 0 ? '' : `(${count[list.taskListId]})`}</NavLink>
             </MenuItem>)
     
 }
