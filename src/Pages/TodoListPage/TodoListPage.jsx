@@ -24,6 +24,7 @@ const TodoListPage = () => {
     }
 
     let changeState = (task) => {
+        console.log(task)
         dispatch(updateStatus(task));
     }
 

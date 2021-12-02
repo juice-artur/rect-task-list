@@ -12,8 +12,8 @@ const tasksReducer = (state = [], action) => {
         case TASKS_LOADED:
             return action.payload;
         case TASK_STATUS_UPDATED:
-            state.map(x => x.id === action.payload.id ? {...x, done: action.payload.done}: x);
-            return state;
+            console.log(state.map(x => x.id === action.payload.id ? {...x, done: action.payload.done}: x));
+            return  state.map(x => x.id === action.payload.id ? {...x, done: action.payload.done}: x);
         default:
             return state;
     }
