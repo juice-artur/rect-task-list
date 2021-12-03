@@ -1,7 +1,6 @@
 import "./TodoListPage.css"
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import taskApi from "../../Api/TaskListApi";
 import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
 import {loadTasks} from "../../store/tasks/tasksAction";
@@ -19,11 +18,6 @@ const TodoListPage = () => {
     
     useEffect(()=> dispatch(loadTasks(params.id, isOpen)), [dispatch, params.id, isOpen]);
     
-    let deleteTask= (taskId) => {
-        taskApi.deleteTask(taskId)
-            /*.then(() =>setTasks(tasks.filter(t => t.id !== taskId)));*/
-    }
-
     let changeState = (task) => {
         console.log(task)
         dispatch(updateStatus(task));
@@ -43,7 +37,7 @@ const TodoListPage = () => {
                 Only open task
                 <input type="checkbox"  onClick={() => setIsOpen(!isOpen)}/>
             </label>
-            <ShowTasks currentList = {tasks} deleteTask ={deleteTask} changeState={changeState}/>
+            <ShowTasks currentList = {tasks} changeState={changeState}/>
             <NewTaskForm addTask ={addTask} listId ={params.id} currentListTask = {tasks}/>
         </div>
     )

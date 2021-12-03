@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import classNames from "classnames";
 import moment from "moment";
+import {deleteTask} from "../store/tasks/deleteTaskAction";
+import {useDispatch} from "react-redux";
 
 const Task = (props) => {
+    const dispatch = useDispatch();
     function isExpired(date)
     {
         return new Date(date) < Date.now();
@@ -11,8 +14,9 @@ const Task = (props) => {
     let task = props.task;
     const [x, setX] = useState(task);
     function onClickDelete() {
-       props.deleteTask(task.id);
+        dispatch(deleteTask(task.id));
     }
+    
     let soldCheckbox = (event)=> {
         x.done = !x.done;
         setX({...task, done: x.done});
