@@ -2,9 +2,12 @@ import {Link} from "react-router-dom";
 import React from "react";
 import classNames from "classnames";
 import moment from "moment";
+import {deleteTask} from "../../store/tasks/deleteTaskAction";
+import {useDispatch} from "react-redux";
 
 
 const TodayTask = (props) => {
+    const dispatch = useDispatch();
     let task = props.task;
     function isExpired(date)
     {
@@ -12,7 +15,7 @@ const TodayTask = (props) => {
     }
     
     function onClickDelete() {
-        props.deleteTask(task);
+       dispatch(deleteTask(task.taskId, task.list.taskListId, task.done));
     }
 
     let soldCheckbox = (event)=> {
