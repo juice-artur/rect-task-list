@@ -14,7 +14,7 @@ const Task = (props) => {
     let task = props.task;
     const [x, setX] = useState(task);
     function onClickDelete() {
-        dispatch(deleteTask(task.id));
+        dispatch(deleteTask(task.id, task.taskListId, task.done));
     }
     
     let soldCheckbox = (event)=> {

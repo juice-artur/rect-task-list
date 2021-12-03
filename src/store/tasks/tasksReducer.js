@@ -14,8 +14,7 @@ const tasksReducer = (state = [], action) => {
         case CREATE_TASK:
             return [...state, action.payload];
         case DELETE_TASK:
-            console.log("Task is " + JSON.stringify(action.payload));
-            return state.filter(t => t.id !== action.payload)
+            return state.filter(t => t.id !== action.payload.taskID)
             
         default:
             return state;
