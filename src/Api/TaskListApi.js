@@ -30,7 +30,7 @@ const taskApi = {
                         'Content-Type': 'application/json'
                     },
                 body: JSON.stringify(task)
-            }).then(response => response.json());
+            }).then(response => response.json())
     },
 
     patchTask(task)

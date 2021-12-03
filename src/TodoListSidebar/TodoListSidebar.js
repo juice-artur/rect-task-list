@@ -10,7 +10,7 @@ import {useEffect} from "react";
 
 const TodoListSidebar = () => {
     const dispatch = useDispatch();
-    useEffect(() => loadDashboard(dispatch), [])
+    useEffect(() => loadDashboard(dispatch), [dispatch])
     let lists = useSelector(state => state.dashboard.lists)
     
     return (

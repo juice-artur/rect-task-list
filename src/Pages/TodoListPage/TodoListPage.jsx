@@ -6,7 +6,8 @@ import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
 import {loadTasks} from "../../store/tasks/tasksAction";
 import {useDispatch, useSelector} from "react-redux";
-import {TASK_STATUS_UPDATED, updateStatus} from "../../store/dashboard/updateTaskStatusAction";
+import {updateStatus} from "../../store/dashboard/updateTaskStatusAction";
+import {createTask} from "../../store/tasks/addTaskAction";
 
 const TodoListPage = () => {
     
@@ -29,9 +30,9 @@ const TodoListPage = () => {
     }
 
 
-    let addTask= (task) => {
-        taskApi.createTask(task, params.id).then(task => console.log("1111")/*setTasks([task, ...tasks])*/);
-
+    let addTask= (task) => 
+    {
+        dispatch(createTask(task, params.id));
     }
     
     
@@ -43,7 +44,7 @@ const TodoListPage = () => {
                 <input type="checkbox"  onClick={() => setIsOpen(!isOpen)}/>
             </label>
             <ShowTasks currentList = {tasks} deleteTask ={deleteTask} changeState={changeState}/>
-            <NewTaskForm addTask ={addTask} currentListTask = {tasks}/>
+            <NewTaskForm addTask ={addTask} listId ={params.id} currentListTask = {tasks}/>
         </div>
     )
 }  

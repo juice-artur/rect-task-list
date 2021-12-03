@@ -1,19 +1,9 @@
 import "./NewTaskForm.css"
-class MyTask {
-    constructor(title, description, dueDate, tl) 
-    {
-            this.taskListId = tl;
-            this.title = title;
-            this.description = description;
-            this.dueDate = dueDate;
-            this.done = false;
-    }
-}
 
 const NewTaskForm = (props) => {
     const onClickAdd = (event) => {
         event.preventDefault();
-        props.addTask(new MyTask(event.target.title.value, event.target.description.value, event.target.dueDate.value, 1))
+        props.addTask( {taskListId : props.listId, title:event.target.title.value, description: event.target.description.value, dueDate:event.target.dueDate.value, done: false})
     };
     return (
         <form onSubmit={onClickAdd} name="taskForm" id="addForm">

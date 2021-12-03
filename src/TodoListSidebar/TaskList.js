@@ -6,7 +6,6 @@ import {loadDashboard} from "../store/dashboard/dashboardAction";
 
 const TaskList = (props) => {
     let list = props.list;
-    console.log(list.json + "Kkksksks")
     const dispatch = useDispatch();
     useEffect(() => loadDashboard(dispatch), [dispatch])
     let count = useSelector(state => state.dashboard.openedTasks)

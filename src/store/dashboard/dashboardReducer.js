@@ -7,7 +7,6 @@ function openedTasksReducer(state = {}, action) {
         case DASHBOARD_LOADED:
             let _openedTasks ={};
             action.payload.lists.forEach(currentTask => _openedTasks[currentTask.taskListId] = currentTask.countOpenTasks)
-            console.log(_openedTasks)
             return _openedTasks;
         case TASK_STATUS_UPDATED:
             return {...state, [action.payload.listId]: (state[action.payload.listId] += !action.payload.done - action.payload.done)};
