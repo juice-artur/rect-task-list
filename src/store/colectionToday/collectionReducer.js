@@ -1,6 +1,7 @@
 ﻿import {combineReducers} from "redux";
 import {TASKS_TODAY_LOADED} from "./collectionAction";
 import {DELETE_TASK} from "../tasks/deleteTaskAction";
+import {TASK_STATUS_UPDATED} from "../dashboard/updateTaskStatusAction";
 
 
 
@@ -9,15 +10,10 @@ const collectionReducer = (state = [], action) => {
         case TASKS_TODAY_LOADED:
             return action.payload;
         case DELETE_TASK:
-            console.log("state is: " + JSON.stringify(state) )
-            return state.filter(t => t.taskId !== action.payload.taskID)
-/*        case TASK_STATUS_UPDATED:
-            return  state.map(x => x.id === action.payload.id ? {...x, done: action.payload.done}: x);
-        case CREATE_TASK:
-            return [...state, action.payload];
-        case DELETE_TASK:
-            return state.filter(t => t.id !== action.payload.taskID)*/
-
+                return state.filter(t => t.taskId !== action.payload.taskID)
+            case TASK_STATUS_UPDATED:
+                return  state.map(x => x.taskId === action.payload.id ? {...x, done: action.payload.done}: x);
+                
         default:
             return state;
     }

@@ -4,6 +4,7 @@ import classNames from "classnames";
 import moment from "moment";
 import {deleteTask} from "../../store/tasks/deleteTaskAction";
 import {useDispatch} from "react-redux";
+import {updateStatus} from "../../store/dashboard/updateTaskStatusAction";
 
 
 const TodayTask = (props) => {
@@ -21,8 +22,7 @@ const TodayTask = (props) => {
     let soldCheckbox = (event)=> {
         let _done = !task.done;
         let test ={id: task.taskId, taskListId:task.list.taskListId, title: task.title, description: task.description, dueDate: task.dueDate, done:  _done };
-        console.log('test: ' + _done );
-        props.changeState(test);
+        dispatch(updateStatus(test));
     }
     
     return (

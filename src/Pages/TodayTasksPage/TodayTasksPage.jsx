@@ -1,4 +1,3 @@
-import taskApi from "../../Api/TaskListApi";
 import ShowTodayTasks from "./ShowTodayTask";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -10,15 +9,9 @@ const TodayTasksPage = () => {
 
     useEffect(()=> dispatch(loadTodayTasks()), [dispatch]);
     
-    let changeState = (task) => {
-        taskApi.patchTask(task)
-/*            .then(() => collectionToday.map(_task => task.id === _task.id ? _task = task : _task))
-            .then(setCollectionToday);*/
-    }
-    
     return (
         <div>
-            <ShowTodayTasks currentList = {collectionToday} changeState={changeState}/>
+            <ShowTodayTasks currentList = {collectionToday}/>
         </div>
     )
 }
