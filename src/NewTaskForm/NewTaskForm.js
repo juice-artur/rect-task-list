@@ -1,9 +1,13 @@
 import "./NewTaskForm.css"
+import {createTask} from "../store/tasks/addTaskAction";
+import {useDispatch} from "react-redux";
 
 const NewTaskForm = (props) => {
+    const dispatch = useDispatch();
     const onClickAdd = (event) => {
         event.preventDefault();
-        props.addTask( {taskListId : props.listId, title:event.target.title.value, description: event.target.description.value, dueDate:event.target.dueDate.value, done: false})
+        let task = {taskListId : props.listId, title:event.target.title.value, description: event.target.description.value, dueDate:event.target.dueDate.value, done: false};
+        dispatch(createTask(task, props.listId));
     };
     return (
         <form onSubmit={onClickAdd} name="taskForm" id="addForm">

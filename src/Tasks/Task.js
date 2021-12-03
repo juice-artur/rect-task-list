@@ -3,6 +3,7 @@ import classNames from "classnames";
 import moment from "moment";
 import {deleteTask} from "../store/tasks/deleteTaskAction";
 import {useDispatch} from "react-redux";
+import {updateStatus} from "../store/dashboard/updateTaskStatusAction";
 
 const Task = (props) => {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const Task = (props) => {
     let soldCheckbox = (event)=> {
         x.done = !x.done;
         setX({...task, done: x.done});
-        props.changeState(x)
+        dispatch(updateStatus(x));
     }
     return (
         <div className="task-to-output">

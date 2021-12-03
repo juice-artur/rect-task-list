@@ -7,7 +7,7 @@ const ShowTasks = (props) => {
     
     return (
         <div className='format-task-to-show'>
-                {list.map(tl => <Task key={tl.id} task={tl} changeState ={props.changeState}/>)}
+                {list.map(tl => <Task key={tl.id} task={tl}/>)}
         </div>
     )
 }
