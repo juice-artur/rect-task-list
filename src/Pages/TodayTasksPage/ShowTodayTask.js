@@ -1,12 +1,18 @@
 import TodayTask from "./TodayTask";
 import "./ShowTodayTask.css"
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {loadTodayTasks} from "../../store/colectionToday/collectionAction";
 
-const ShowTodayTasks = (props) => {
-    let list = props.currentList;
+const ShowTodayTasks = () => {
+    const dispatch = useDispatch();
+    const collectionToday = useSelector(state => state.tasksToday.tasksToday)
+
+    useEffect(()=> dispatch(loadTodayTasks()), [dispatch]);
     
     return (
         <div className='format-task-to-show'>
-            {list.map(tl => <TodayTask key={tl.id} task={tl}/>)}
+            {collectionToday.map(tl => <TodayTask key={tl.id} task={tl}/>)}
         </div>
     )
 }
