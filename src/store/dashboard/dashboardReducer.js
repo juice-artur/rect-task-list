@@ -1,6 +1,7 @@
 import { DASHBOARD_LOADED } from './dashboardAction'
 import {combineReducers} from "redux";
 import {TASK_STATUS_UPDATED} from "./updateTaskStatusAction";
+import {CREATE_TASK} from "../tasks/addTaskAction";
 
 function openedTasksReducer(state = {}, action) {
     switch (action.type) {
@@ -10,6 +11,8 @@ function openedTasksReducer(state = {}, action) {
             return _openedTasks;
         case TASK_STATUS_UPDATED:
             return {...state, [action.payload.listId]: (state[action.payload.listId] += !action.payload.done - action.payload.done)};
+        case CREATE_TASK:
+            return {...state, [action.payload.taskListId]: (state[action.payload.taskListId] += 1)};
         default:
             return state;
     }
