@@ -1,11 +1,12 @@
 import "./TodoListPage.css"
 import {useParams} from "react-router-dom";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
 import {loadTasks} from "../../store/tasks/tasksAction";
 import {useDispatch, useSelector} from "react-redux";
 import {changVisible} from "../../store/tasks/VisibleAction";
+import {FaArrowUp} from "react-icons/all";
 
 const TodoListPage = () => {
     
@@ -24,7 +25,7 @@ const TodoListPage = () => {
                 Only open task
                 <input type="checkbox"  onClick={() =>dispatch(changVisible(isOpen))}/>
             </label>
-            <ShowTasks currentList = {tasks }/>
+            <ShowTasks currentList = {tasks } listId ={params.id}/>
             <NewTaskForm listId ={params.id} currentListTask = {tasks}/>
         </div>
     )

@@ -1,5 +1,12 @@
 import {combineReducers} from "redux";
-import {ADD_TODOLIST, CREATE_TASK, DASHBOARD_LOADED, DELETE_TASK, TASK_STATUS_UPDATED} from "../actions/types";
+import {
+    ADD_TODOLIST,
+    CREATE_TASK,
+    DASHBOARD_LOADED,
+    DELETE_TASK,
+    DELETE_TODOLIST,
+    TASK_STATUS_UPDATED
+} from "../actions/types";
 
 
 function openedTasksReducer(state = {}, action) {
@@ -30,6 +37,9 @@ function listsReducer(state = [], action) {
                 title:action.payload.title,
                 countOpenTasks:0
             }]
+        case DELETE_TODOLIST:
+            console.log(state)
+            return state.filter(t => t.taskListId !=  action.payload)
         default:
             return state;
     }    

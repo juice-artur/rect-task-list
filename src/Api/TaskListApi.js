@@ -64,6 +64,14 @@ const taskApi = {
             {
                 method: 'DELETE'
             })
+    },
+
+    deleteTodoList(listId)
+    {
+        return fetch(baseApiUrl + `/TaskList/${listId}`,
+            {
+                method: 'DELETE'
+            })
     }
     
 };

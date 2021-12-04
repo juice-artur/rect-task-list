@@ -7,3 +7,4 @@ export const TASKS_LOADED = 'tasks/loaded'
 export const TASKS_CHANGE_VISIBLE = 'tasks/changVisible'
 
 export const ADD_TODOLIST = 'tasks/add/todolist'
+export const DELETE_TODOLIST = 'tasks/delete/todoList';
