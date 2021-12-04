@@ -5,16 +5,20 @@ import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
 import {loadTasks} from "../../store/tasks/tasksAction";
 import {useDispatch, useSelector} from "react-redux";
+import {changVisible} from "../../store/tasks/VisibleAction";
 
 const TodoListPage = () => {
     
     const params = useParams();
-    const [isOpen, setIsOpen] = useState(false);
+    const isOpen = useSelector(state => state.onlyOpen.onlyOpen) 
 
     const dispatch = useDispatch();
     const tasks = useSelector(state => state.tasks.tasks)
-    
-    useEffect(()=> dispatch(loadTasks(params.id, isOpen)), [dispatch, params.id, isOpen]);
+    let testF = () =>
+    {
+        dispatch(changVisible(isOpen));
+    }
+    useEffect(()=> dispatch(loadTasks(params.id, false)), [dispatch, params.id]);
     
     
     return (
@@ -22,9 +26,9 @@ const TodoListPage = () => {
 
             <label>
                 Only open task
-                <input type="checkbox"  onClick={() => setIsOpen(!isOpen)}/>
+                <input type="checkbox"  onClick={testF}/>
             </label>
-            <ShowTasks currentList = {tasks}/>
+            <ShowTasks currentList = {tasks }/>
             <NewTaskForm listId ={params.id} currentListTask = {tasks}/>
         </div>
     )
