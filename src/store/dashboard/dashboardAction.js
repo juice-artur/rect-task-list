@@ -1,6 +1,6 @@
 import taskApi from "../../Api/TaskListApi";
+import {DASHBOARD_LOADED} from "../actions/types";
 
-export const DASHBOARD_LOADED = 'dashboard/loaded'
 export const loadDashboard = dispatch => {
     taskApi.getDashboard()
         .then(dashboard => dispatch({

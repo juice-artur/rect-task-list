@@ -42,7 +42,7 @@ const taskApi = {
                     'Content-Type': 'application/json'
                 },
             body: JSON.stringify(task)
-        })
+        }).then(res => res.json())
     },
 
     deleteTask(taskId)

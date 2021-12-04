@@ -1,7 +1,5 @@
 ﻿import {combineReducers} from "redux";
-import {TASKS_CHANGE_VISIBLE} from "./VisibleAction";
-
-
+import {TASKS_CHANGE_VISIBLE} from "../actions/types";
 
 const visibleReducer = (state = false, action) => {
     switch (action.type){

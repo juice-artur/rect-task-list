@@ -1,8 +1,6 @@
-import { DASHBOARD_LOADED } from './dashboardAction'
 import {combineReducers} from "redux";
-import {TASK_STATUS_UPDATED} from "./updateTaskStatusAction";
-import {CREATE_TASK} from "../tasks/addTaskAction";
-import {DELETE_TASK} from "../tasks/deleteTaskAction";
+import {CREATE_TASK, DASHBOARD_LOADED, DELETE_TASK, TASK_STATUS_UPDATED} from "../actions/types";
+
 
 function openedTasksReducer(state = {}, action) {
     switch (action.type) {

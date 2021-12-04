@@ -1,6 +1,6 @@
 import "./TodoListPage.css"
 import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import NewTaskForm from "../../NewTaskForm/NewTaskForm";
 import ShowTasks from "../../Tasks/ShowTasks";
 import {loadTasks} from "../../store/tasks/tasksAction";
@@ -14,19 +14,15 @@ const TodoListPage = () => {
 
     const dispatch = useDispatch();
     const tasks = useSelector(state => state.tasks.tasks)
-    let testF = () =>
-    {
-        dispatch(changVisible(isOpen));
-    }
+
     useEffect(()=> dispatch(loadTasks(params.id, false)), [dispatch, params.id]);
     
     
     return (
         <div className="test-div">
-
             <label>
                 Only open task
-                <input type="checkbox"  onClick={testF}/>
+                <input type="checkbox"  onClick={() =>dispatch(changVisible(isOpen))}/>
             </label>
             <ShowTasks currentList = {tasks }/>
             <NewTaskForm listId ={params.id} currentListTask = {tasks}/>

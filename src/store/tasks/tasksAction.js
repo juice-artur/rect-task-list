@@ -1,6 +1,6 @@
 import taskApi from "../../Api/TaskListApi";
+import {TASKS_LOADED} from "../actions/types";
 
-export const TASKS_LOADED = 'tasks/loaded'
 export const loadTasks = (listId, isOpen) => dispatch => {
     taskApi.getOpenTasks(listId, isOpen)
         .then(tasks => dispatch({

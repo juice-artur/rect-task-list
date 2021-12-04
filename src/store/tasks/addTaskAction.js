@@ -1,6 +1,6 @@
 import taskApi from "../../Api/TaskListApi";
+import {CREATE_TASK} from "../actions/types";
 
-export const CREATE_TASK= 'tasks/create'
 export const createTask = (task, listId) => dispatch => {
     taskApi.createTask(task, listId)
         .then(res=> dispatch({

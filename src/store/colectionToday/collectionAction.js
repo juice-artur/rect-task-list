@@ -1,6 +1,6 @@
 ﻿import taskApi from "../../Api/TaskListApi";
+import {TASKS_TODAY_LOADED} from "../actions/types";
 
-export const TASKS_TODAY_LOADED = 'tasks/today/loaded'
 export const loadTodayTasks = () => dispatch => {
     taskApi.getTodayTasks()
         .then(tasksToday => dispatch({

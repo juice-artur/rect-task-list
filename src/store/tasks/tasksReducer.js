@@ -1,9 +1,5 @@
-import {TASKS_LOADED} from './tasksAction'
 import {combineReducers} from "redux";
-import {TASK_STATUS_UPDATED} from "../dashboard/updateTaskStatusAction";
-import {CREATE_TASK} from "./addTaskAction";
-import {DELETE_TASK} from "./deleteTaskAction";
-
+import {CREATE_TASK, DELETE_TASK, TASK_STATUS_UPDATED, TASKS_LOADED} from "../actions/types";
 
 const tasksReducer = (state = [], action) => {
     switch (action.type){

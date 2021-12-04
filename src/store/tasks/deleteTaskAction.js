@@ -1,6 +1,6 @@
 ﻿import taskApi from "../../Api/TaskListApi";
+import {DELETE_TASK} from "../actions/types";
 
-export const DELETE_TASK= 'tasks/delete'
 export const deleteTask = (taskID,listId, done ) => dispatch => {
     taskApi.deleteTask(taskID)
         .then(() => dispatch({

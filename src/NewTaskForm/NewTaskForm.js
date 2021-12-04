@@ -4,11 +4,17 @@ import {useDispatch} from "react-redux";
 
 const NewTaskForm = (props) => {
     const dispatch = useDispatch();
+    
     const onClickAdd = (event) => {
         event.preventDefault();
-        let task = {taskListId : props.listId, title:event.target.title.value, description: event.target.description.value, dueDate:event.target.dueDate.value, done: false};
+        let task = {taskListId : props.listId,
+            title:event.target.title.value,
+            description: event.target.description.value,
+            dueDate:event.target.dueDate.value, 
+            done: false};
         dispatch(createTask(task, props.listId));
     };
+    
     return (
         <form onSubmit={onClickAdd} name="taskForm" id="addForm">
             <input className='item' type="text" name="title"  placeholder="Title" required/>

@@ -21,7 +21,12 @@ const TodayTask = (props) => {
 
     let soldCheckbox = (event)=> {
         let _done = !task.done;
-        let test ={id: task.taskId, taskListId:task.list.taskListId, title: task.title, description: task.description, dueDate: task.dueDate, done:  _done };
+        let test ={id: task.taskId,
+            taskListId:task.list.taskListId,
+            title: task.title,
+            description: task.description,
+            dueDate: task.dueDate,
+            done:  _done };
         dispatch(updateStatus(test));
     }
     

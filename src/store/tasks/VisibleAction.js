@@ -1,5 +1,5 @@
-﻿
-export const TASKS_CHANGE_VISIBLE = 'tasks/changVisible'
+﻿import {TASKS_CHANGE_VISIBLE} from "../actions/types";
+
 export const changVisible = (onlyOpen) => 
     ({
         type: TASKS_CHANGE_VISIBLE,
