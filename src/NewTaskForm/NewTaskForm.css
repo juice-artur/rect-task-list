@@ -1,7 +1,6 @@
 form {
     display: flex;
     flex-direction: column;
-    border: 2px solid blueviolet;
 }
 
 .item {
@@ -15,5 +14,8 @@ form button {
     width: 60%;
     margin: 0 auto;
     align-items: center;
+    background-color: #0E4DA4;
+    border-width: 0;
 
 }
+

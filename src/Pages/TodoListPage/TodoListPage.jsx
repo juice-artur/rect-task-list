@@ -11,8 +11,6 @@ import {FaArrowUp} from "react-icons/all";
 const TodoListPage = () => {
     
     const params = useParams();
-    const isOpen = useSelector(state => state.onlyOpen.onlyOpen) 
-
     const dispatch = useDispatch();
     const tasks = useSelector(state => state.tasks.tasks)
 
@@ -21,10 +19,6 @@ const TodoListPage = () => {
     
     return (
         <div className="test-div">
-            <label>
-                Only open task
-                <input type="checkbox"  onClick={() =>dispatch(changVisible(isOpen))}/>
-            </label>
             <ShowTasks currentList = {tasks } listId ={params.id}/>
             <NewTaskForm listId ={params.id} currentListTask = {tasks}/>
         </div>

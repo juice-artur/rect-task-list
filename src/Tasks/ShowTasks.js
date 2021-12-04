@@ -21,7 +21,7 @@ const ShowTasks = (props) => {
 
     return (
         <div className='format-task-to-show'>
-            <button onClick={onClickDelete}>
+            <button className='delete-todo-list-button' onClick={onClickDelete}>
                 <AiFillDelete/> Delete list
             </button>
                 {toShow.map(tl => <Task key={tl.id} task={tl}/>)}
