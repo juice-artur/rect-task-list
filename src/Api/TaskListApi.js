@@ -32,6 +32,19 @@ const taskApi = {
                 body: JSON.stringify(task)
             }).then(response => response.json())
     },
+    
+    createTodoList(title)
+    {
+        return fetch(baseApiUrl +'/TaskList',
+            {
+                method: 'POST',
+                headers:
+                    {
+                        'Content-Type': 'application/json'
+                    },
+                body: JSON.stringify(title)
+            }).then(response => response.json())
+    },
 
     patchTask(task)
     {

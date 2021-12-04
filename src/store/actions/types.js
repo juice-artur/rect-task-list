@@ -5,3 +5,5 @@ export const CREATE_TASK= 'tasks/create'
 export const DELETE_TASK= 'tasks/delete'
 export const TASKS_LOADED = 'tasks/loaded'
 export const TASKS_CHANGE_VISIBLE = 'tasks/changVisible'
+
+export const ADD_TODOLIST = 'tasks/add/todolist'

@@ -7,6 +7,7 @@ import "./TodoListSidebar.scss"
 import {useDispatch, useSelector} from "react-redux";
 import {loadDashboard} from "../store/dashboard/dashboardAction";
 import {useEffect} from "react";
+import NewTodoListForm from "../NewTodoLIstForm/NewTodoListForm";
 
 const TodoListSidebar = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,11 @@ const TodoListSidebar = () => {
                     <SubMenu title="Lists">
                         {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
                     </SubMenu>
+                    <MenuItem>
+                        <div className="input-group">
+                           <NewTodoListForm/>
+                        </div>
+                    </MenuItem>
                 </Menu>
             </SidebarContent>
             <SidebarFooter>

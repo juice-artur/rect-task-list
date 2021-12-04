@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import {CREATE_TASK, DASHBOARD_LOADED, DELETE_TASK, TASK_STATUS_UPDATED} from "../actions/types";
+import {ADD_TODOLIST, CREATE_TASK, DASHBOARD_LOADED, DELETE_TASK, TASK_STATUS_UPDATED} from "../actions/types";
 
 
 function openedTasksReducer(state = {}, action) {
@@ -20,8 +20,25 @@ function openedTasksReducer(state = {}, action) {
 
 }
 
+function listsReducer(state = [], action) {
+    switch (action.type) {
+        case DASHBOARD_LOADED:
+            return action.payload.lists;
+        case ADD_TODOLIST:
+            return [...state, {
+                taskListId: action.payload.id,
+                title:action.payload.title,
+                countOpenTasks:0
+            }]
+        default:
+            return state;
+    }    
+}
+
+
+
 export default combineReducers({
     today: (today = 0, {type, payload}) => type === DASHBOARD_LOADED ? payload.taskTodayCount : today,
-    lists: (lists = [], {type, payload}) => type === DASHBOARD_LOADED ? payload.lists : lists,
+    lists: listsReducer,
     openedTasks: openedTasksReducer
 })
