@@ -9,6 +9,7 @@ import {loadDashboard} from "../store/dashboard/dashboardAction";
 import React, {useEffect} from "react";
 import NewTodoListForm from "../NewTodoLIstForm/NewTodoListForm";
 import {changVisible} from "../store/tasks/VisibleAction";
+import {BsListTask, IoListSharp, IoToday} from "react-icons/all";
 
 const TodoListSidebar = () => {
     const dispatch = useDispatch();
@@ -29,10 +30,10 @@ const TodoListSidebar = () => {
             </SidebarHeader>
             <SidebarContent>
                 <Menu iconShape="square">
-                    <MenuItem>
+                    <MenuItem icon={<IoToday />}>
                         <NavLink to="/today">Today Tasks</NavLink>
                     </MenuItem>
-                    <SubMenu title="Lists">
+                    <SubMenu title="Lists" icon={<IoListSharp/>}>
                         {lists.map(tl => <TaskList key={tl.taskListId} list={tl}> </TaskList>)}
                     </SubMenu>
                     <MenuItem>

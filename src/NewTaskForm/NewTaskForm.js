@@ -1,6 +1,7 @@
 import "./NewTaskForm.css"
 import {createTask} from "../store/tasks/addTaskAction";
 import {useDispatch} from "react-redux";
+import {IoAddOutline} from "react-icons/all";
 
 const NewTaskForm = (props) => {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const NewTaskForm = (props) => {
             <input className='item' type="text" name="title"  placeholder="Title" required/>
             <input className='item' type="text" name="description" placeholder="Task description"/>
             <input className='item' type="date" name="dueDate" placeholder="Deadline"/>
-            <button type="submit">Add task</button>
+            <button type="submit"> <IoAddOutline/> Add task</button>
         </form>
     );
 };
