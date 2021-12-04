@@ -5,6 +5,7 @@ import moment from "moment";
 import {deleteTask} from "../../store/tasks/deleteTaskAction";
 import {useDispatch} from "react-redux";
 import {updateStatus} from "../../store/dashboard/updateTaskStatusAction";
+import {AiFillDelete, IoIosRemoveCircle} from "react-icons/all";
 
 
 const TodayTask = (props) => {
@@ -40,7 +41,7 @@ const TodayTask = (props) => {
             <div className='task-head'>
                 <input className="task-isDone-checkBox" type="checkbox" defaultChecked={task.done} onChange={soldCheckbox}/>
                 <p className={classNames({'done-title' : task.done})}>{task.title}</p>
-                <button className='remove-button' onClick={onClickDelete}> Delete task</button>
+                <button className='remove-button' onClick={onClickDelete}> <IoIosRemoveCircle/></button>
             </div>
             <div  className="desc">
                 <p>{task.description}</p>
