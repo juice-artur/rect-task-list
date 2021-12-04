@@ -1,4 +1,5 @@
 .task-head {
+    border: black 2px solid;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -17,10 +18,9 @@
 .task-to-output
 {
     margin-top:2em;
-    padding-left: 1%;
-    padding-right: 1%;
     background-color: #222222;
 }
+
 .task-isDone-checkBox {
     width: 20px;
     height: 20px;
