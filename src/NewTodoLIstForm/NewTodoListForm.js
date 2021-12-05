@@ -10,6 +10,7 @@ const NewTodoListForm = () => {
     const onClickAdd = (event) => {
         event.preventDefault();
         dispatch(addTaskList(event.target.title.value));
+        event.target.reset();
     };
 
     return (

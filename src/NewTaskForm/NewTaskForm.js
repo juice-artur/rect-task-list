@@ -14,6 +14,7 @@ const NewTaskForm = (props) => {
             dueDate:event.target.dueDate.value, 
             done: false};
         dispatch(createTask(task, props.listId));
+        event.target.reset();
     };
     
     return (
