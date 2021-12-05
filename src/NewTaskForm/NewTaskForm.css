@@ -1,12 +1,13 @@
 form {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.item {
 
+.item {
     font-size: x-large;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 form button {
@@ -18,4 +19,11 @@ form button {
     border-width: 0;
 
 }
+
+
+form label
+{
+    text-align: left;
+}
+
 
