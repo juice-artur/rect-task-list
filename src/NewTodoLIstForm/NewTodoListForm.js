@@ -3,21 +3,39 @@ import {addTaskList} from "../store/dashboard/addTaskListAction";
 import "./NewTodoListForm.css"
 import {IoAddOutline} from "react-icons/all";
 
+import { useFormik } from 'formik';
+
+
+
+import React from 'react';
+
 const NewTodoListForm = () => {
-    
     const dispatch = useDispatch();
-
-    const onClickAdd = (event) => {
-        event.preventDefault();
-        dispatch(addTaskList(event.target.title.value));
-        event.target.reset();
-    };
-
+    
+    const formik = useFormik({
+        initialValues: {
+            listTitle: '',
+        },
+        onSubmit: values => {
+            dispatch(addTaskList(values.listTitle));
+            formik.resetForm();
+        },
+    });
     return (
-        <form onSubmit={onClickAdd}  name="todo-list-Form" id="addForm">
-            <input className='item' type="text" name="title"  placeholder="Enter list title" required/>
-            <button className='add-list-button'  type="submit"> <IoAddOutline/> Add list</button>
+        <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="email">List title</label>
+            <input
+                placeholder="Enter list title"
+                id="listTitle"
+                name="listTitle"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.listTitle}
+            />
+
+            <button type="submit"> <IoAddOutline/>Add list</button>
         </form>
     );
 };
 export default NewTodoListForm ;
+
