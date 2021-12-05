@@ -1,7 +1,7 @@
 ﻿import {useDispatch} from "react-redux";
 import {addTaskList} from "../store/dashboard/addTaskListAction";
 import "./NewTodoListForm.css"
-import {IoAddOutline} from "react-icons/all";
+import {IoAddOutline, MdOutlineTitle} from "react-icons/all";
 
 import { useFormik } from 'formik';
 
@@ -23,7 +23,7 @@ const NewTodoListForm = () => {
     });
     return (
         <form className={"new-todo-list"} onSubmit={formik.handleSubmit}>
-            <label htmlFor="list-title">List title</label>
+            <label htmlFor="list-title"><MdOutlineTitle/> List title</label>
             <input
                 required
                 placeholder="Enter list title"

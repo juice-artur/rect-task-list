@@ -4,7 +4,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import {useDispatch} from "react-redux";
 import {createTask} from "../store/tasks/addTaskAction";
-import {IoAddOutline} from "react-icons/all";
+import {GiTimeBomb, IoAddOutline, MdDescription, MdOutlineTitle} from "react-icons/all";
 
 const NewTaskForm = (props) => {
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const NewTaskForm = (props) => {
     });
     return (
         <form onSubmit={formik.handleSubmit}>
-            <label  htmlFor="title">Title</label>
+            <label  htmlFor="title"><MdOutlineTitle/> Title</label>
             <input
                 required
                 placeholder="Enter task title"
@@ -39,7 +39,7 @@ const NewTaskForm = (props) => {
                 value={formik.values.title}
             />
 
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description"><MdDescription/> Description</label>
             <input
                 placeholder="Enter task desc"
                 className={"item"}
@@ -50,7 +50,7 @@ const NewTaskForm = (props) => {
                 value={formik.values.description}
             />
 
-            <label htmlFor="dueDate">Dedline</label>
+            <label htmlFor="dueDate"><GiTimeBomb/> Dedline</label>
             <input
                 className={"item"}
                 id="dueDate"
