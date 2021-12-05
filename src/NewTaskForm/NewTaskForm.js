@@ -29,6 +29,7 @@ const NewTaskForm = (props) => {
         <form onSubmit={formik.handleSubmit}>
             <label  htmlFor="title">Title</label>
             <input
+                required
                 placeholder="Enter task title"
                 className={"item"}
                 id="title"

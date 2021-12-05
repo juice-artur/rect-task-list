@@ -25,6 +25,7 @@ const NewTodoListForm = () => {
         <form className={"new-todo-list"} onSubmit={formik.handleSubmit}>
             <label htmlFor="list-title">List title</label>
             <input
+                required
                 placeholder="Enter list title"
                 id="listTitle"
                 name="listTitle"
