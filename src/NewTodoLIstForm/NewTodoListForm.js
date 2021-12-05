@@ -22,7 +22,7 @@ const NewTodoListForm = () => {
         },
     });
     return (
-        <form onSubmit={formik.handleSubmit}>
+        <form className={"new-todo-list"} onSubmit={formik.handleSubmit}>
             <label htmlFor="email">List title</label>
             <input
                 placeholder="Enter list title"
