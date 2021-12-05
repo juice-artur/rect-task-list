@@ -1,5 +1,16 @@
-﻿.add-list-button
+﻿form button
 {
     background-color: #0E4DA4;
     border-width: 0;
+}
+
+form label
+{
+    text-align: left;
+}
+
+form input
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
