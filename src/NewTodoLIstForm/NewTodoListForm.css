@@ -2,6 +2,7 @@
 {
     background-color: #0E4DA4;
     border-width: 0;
+    border-radius: 12px
 }
 
 .new-todo-list label
