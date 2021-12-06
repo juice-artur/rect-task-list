@@ -69,6 +69,12 @@
     border-radius: 8px
 }
 
+.delete-todo-list-link
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .remove-button
 {
     font-size: x-large;
